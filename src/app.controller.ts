@@ -5,9 +5,14 @@ import { AppService } from './app.service';
 
 // @이를 이용한 '데코레이터' 키워드는 스프링에서의 '어노테이션'과 비슷하다.
 //Controller( ) 인수를 넣게 되면 -> localhost:8000/cats 로 사용된다.
-@Controller('cats') 
+@Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
+
+  @Get() //미들웨어가 잘 작동하는지 알아보려고 만든녀석
+  hello() {
+    return 'helloWorld!';
+  }
 
   //@Get( ) 인수를 넣게 되면 -> localhost:8000/cats/hello로 적용된다.
   @Get('hello/:id/:name')

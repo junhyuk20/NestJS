@@ -12,7 +12,7 @@ import { LoggerMiddleware } from './logger.middleware';
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(LoggerMiddleware).forRoutes('cats');
+    consumer.apply(LoggerMiddleware).forRoutes('*'); // forRoutes() 인수로 '*'을 넣어주면 모든 라우터에 적용된다. 
   }
 }
 {
